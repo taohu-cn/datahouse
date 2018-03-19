@@ -9,6 +9,7 @@ from common.models import Project, Instance, Size
 from run import db
 from . import app01
 
+
 OFFERSET_DAYS = datetime.timedelta(days=50)
 
 
