@@ -1,0 +1,45 @@
+{% extends "web/instance.Coat.html" %}
+
+{% block content %}
+    <div class="container">
+        <!--<h2>Project</h2>-->
+
+        <!-- data-pro_id 标识项目id -->
+        <div id="table" data-pro_id="{{ pro_id }}" class="panel panel-default">
+            <div class="panel-body">
+                <h3 style="color: red;">{{ pro_name }}</h3>
+            </div>
+
+            <!-- Table -->
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>用途</th>
+                    <th>HOST</th>
+                    <th>PORT</th>
+                    <th>类型</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for i in ins_obj %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <a href="{{ url_for("app01.instance_detail") }}{{ i.id }}">{{ i.db_usage }}</a>
+                        </td>
+                        <td>{{ i.host }}</td>
+                        <td>{{ i.port }}</td>
+                        <td>{{ i.db_type }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!--画图区, js动态添加 id="ins_id", 用于画图-->
+    <div id="instance_dashboard" class="container theme-showcase"></div>
+
+{% endblock %}

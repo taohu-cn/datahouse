@@ -1,0 +1,49 @@
+{% extends "base/base.vary.html" %}
+
+{% block css %}
+    <link href="" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.semanticui.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div style="padding-top: 70px; padding-bottom: 70px;">
+            <table id="table_project" class="ui celled table" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>项目名</th>
+                    <th>项目经理</th>
+                    <th>项目运维</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for i in pro_obj %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <a href="{{ url_for("app01.instance") }}{{ i.id }}" target="_blank">{{ i.name }}</a>
+                        </td>
+                        <td>{{ i.pm }}</td>
+                        <td>{{ i.op }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+    <script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.semanticui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table_project').DataTable();
+            $("p").removeClass()
+        });
+    </script>
+{% endblock %}

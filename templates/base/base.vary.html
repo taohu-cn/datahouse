@@ -1,0 +1,17 @@
+{% extends "base/base.padding.html" %}
+
+{% block dashboard_url %}
+    {{ url_for("app01.dashboard") }}
+{% endblock %}
+
+{% block project_url %}
+    {{ url_for("app01.project") }}
+{% endblock %}
+
+{% block about_url %}
+    http://ito.changyan.com/
+{% endblock %}
+
+{#{% block instance_url %}#}
+{#    {{ url_for("api_01_02.instance") }}#}
+{#{% endblock %}#}

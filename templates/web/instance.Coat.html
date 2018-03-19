@@ -1,0 +1,18 @@
+{% extends "base/base.vary.html" %}
+
+{% block css %}
+    <link href="https://cdn.bootcss.com/datatables/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block ext_js %}
+    <script src="{{ url_for('static', filename='js/src/Graph.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/src/instance.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/src/Single.js') }}"></script>
+    <script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.bootcss.com/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#data_list').DataTable();
+        });
+    </script>
+{% endblock %}
